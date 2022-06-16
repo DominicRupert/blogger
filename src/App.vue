@@ -2,7 +2,7 @@
   <header>
     <Navbar />
   </header>
-  <main class="">
+  <main class=" bg-secondary">
     <router-view />
   </main>
   <Modal id="blog-modal">

@@ -1,7 +1,13 @@
 <template>
-<CreateBlog />
+<div class="container-fluid">
+  <div class="row">
+
+    
+    <CreateBlog />
     
   <Blog v-for="blog in blogs" :key="blog.id" :blog="blog" />
+    </div>
+</div>
 </template>
 
 <script>

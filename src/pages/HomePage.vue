@@ -1,45 +1,39 @@
 <template>
-<div class="container-fluid">
-  <div class="row">
+  <div class="container-fluid">
+    <div class="row">
+      <CreateBlog />
 
-    
-    <CreateBlog />
-    
-  <Blog v-for="blog in blogs" :key="blog.id" :blog="blog" />
+      <Blog v-for="blog in blogs" :key="blog.id" :blog="blog" />
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-import { AppState } from '../AppState.js'
-import { computed, onMounted } from 'vue'
-import Pop from '../utils/Pop.js'
-import { blogsService } from '../services/BlogsService.js'
-
-
-
+import { AppState } from "../AppState.js";
+import { computed, onMounted } from "vue";
+import Pop from "../utils/Pop.js";
+import { blogsService } from "../services/BlogsService.js";
 
 export default {
-  name: 'Home',
+  name: "Home",
 
   setup() {
     onMounted(async () => {
-
       try {
-        AppState.blogs = []
-        await blogsService.getBlogs()
+        AppState.blogs = [];
+        await blogsService.getBlogs();
       } catch (error) {
-        Pop.toast(error.message, 'error')
+        Pop.toast(error.message, "error");
+        logger.error(error);
       }
     });
 
     return {
-      blogs: computed(() => AppState.blogs)
-    }
-  }
-}
-
-
+      blogs: computed(() => AppState.blogs),
+      account: computed(() => AppState.Account),
+    };
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -53,7 +47,7 @@ export default {
   .home-card {
     width: 50vw;
 
-    >img {
+    > img {
       height: 200px;
       max-width: 200px;
       width: 100%;

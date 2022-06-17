@@ -16,15 +16,20 @@ class BlogsService {
 
     AppState.blogs.push(res.data);
   }
+
+  async getBlogsByProfile(profileId) {
+    const res = await api.get(`api/blogs/?creatorId=${profileId}`);
+    logger.log(res.data, "supper");
+    AppState.blogs = res.data;
+  }
   async removeBlog(id) {
     const res = await api.delete(`api/blogs/${id}`);
     logger.log(res.data);
     AppState.blogs = AppState.blogs.filter((blog) => blog.id != id);
   }
-  async editBlog(id, blogData) {    
+  async editBlog(id, blogData) {
     const res = await api.put(`api/blogs/${id}`, blogData);
     logger.log(res.data);
-
-}
+  }
 }
 export const blogsService = new BlogsService();

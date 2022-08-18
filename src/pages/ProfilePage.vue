@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-center profile">
+    <div class="row justify-content-center">
       <div
         class="
           col-4
@@ -10,14 +10,14 @@
           align-items-center
         "
       >
-        <img class="profile-img" :src="profile.picture" alt="" />
+        <img class="profile-img profile" :src="profile.picture" alt="" />
         <h3 class="col-12 text-center">
           {{ profile.name }}
         </h3>
       </div>
     </div>
     <CreateBlog v-if="account.id == profile.id" />
-    <div class="row">
+    <div class="row m-2">
       <Blog v-for="b in blogs" :key="b.id" :blog="b" />
     </div>
   </div>
@@ -63,7 +63,7 @@ export default {
   background-color: var(--bs-primary);
 }
 .profile {
-  transform: translateY(-10vh);
+  transform: translateY(-9vh);
 }
 .profile-img {
   width: 150px;

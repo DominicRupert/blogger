@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="row "> -->
   <form
-    class="pb-4 d-flex flex-column bg-dark"
+    class="p-4 d-flex bg-dark flex-column bg-dark"
     action=""
     @submit.prevent="createBlog"
   >

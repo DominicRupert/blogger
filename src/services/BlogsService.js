@@ -14,7 +14,7 @@ class BlogsService {
     const res = await api.post("api/blogs", blogData);
     logger.log(res.data);
 
-    AppState.blogs.push(res.data);
+    AppState.blogs.unshift(res.data);
   }
 
   async getBlogsByProfile(profileId) {

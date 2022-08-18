@@ -1,7 +1,7 @@
 <template >
-
   <div class="col-4 card bg-dark border border-3">
     <h1>{{ blog.title }}</h1>
+    <!-- stuff to show or hide button for non users -->
     <button
       v-show="blog.creatorId == account.id"
       class="delete-button btn btn-danger rounded-pill content selectable"
@@ -21,7 +21,6 @@
 
     <img class="img-fluid" :src="blog.imgUrl" alt="" />
   </div>
- 
 </template>
 
 
@@ -37,11 +36,9 @@ export default {
   setup(props) {
     const router = useRouter();
     return {
-        setActive() {
+      setActive() {
         blogsService.setActive(props.blog);
-        Modal.getOrCreateInstance(
-          document.getElementById("blog-modal")
-        ).show();
+        Modal.getOrCreateInstance(document.getElementById("blog-modal")).show();
       },
       goToProfile() {
         router.push({

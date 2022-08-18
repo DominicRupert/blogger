@@ -30,7 +30,7 @@ export default {
 
     return {
       blogs: computed(() => AppState.blogs),
-      account: computed(() => AppState.Account),
+      account: computed(() => AppState.account),
     };
   },
 };

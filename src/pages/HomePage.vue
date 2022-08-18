@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <CreateBlog />
+      <CreateBlog v-if="account.id" />
 
       <Blog v-for="blog in blogs" :key="blog.id" :blog="blog" />
     </div>

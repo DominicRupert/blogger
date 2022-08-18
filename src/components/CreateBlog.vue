@@ -37,6 +37,8 @@ export default {
       async createBlog() {
         try {
           await blogsService.createBlog(blogData.value);
+          Pop.toast("Post Created", "success");
+          blogData.value = {};
         } catch (error) {
           logger.error(error);
           Pop.toast(error.message, "error");

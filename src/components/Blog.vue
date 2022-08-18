@@ -49,7 +49,9 @@ export default {
       account: computed(() => AppState.account),
       async removeBlog() {
         try {
-          await blogsService.removeBlog(props.blog.id);
+          if (await Pop.confirm("Are you sure you want to Delete?")) {
+            await blogsService.removeBlog(props.blog.id);
+          }
         } catch (error) {
           Pop.toast(error.message, "error");
         }
